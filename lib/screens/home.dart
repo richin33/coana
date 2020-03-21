@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
     setState(() => _screenSize = screenWidth(context: context));
     return Scaffold(
       appBar: AppBar(
-        leading: Image(image: AssetImage('assets/coana.png')),
+        leading: Image(image: AssetImage('assets/coana1.png')),
           backgroundColor: Color(123)
       ),
       body: Column(
