@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter on The Web: Responsive Demo',
+      title: 'coana - Corona Anamnese App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -16,3 +16,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+Widget appImagesSection = Container(
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Image(image: AssetImage('assets/google-play-badge.png')),
+      Image(image: AssetImage('assets/ios-app-store-badge.png')),
+    ],
+  ),
+);
