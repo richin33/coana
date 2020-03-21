@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            'Flutter Web App',
+            'CoAna - COrona ANamnese App',
             style: TextStyle(
               color: Colors.black,
               fontSize: 24,
