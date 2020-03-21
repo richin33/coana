@@ -24,47 +24,22 @@ class _HomeState extends State<Home> {
     setState(() => _screenSize = screenWidth(context: context));
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'CoAna - COrona ANamnese App',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 24,
+        leading: Image(image: AssetImage('assets/coana.png')),
+          backgroundColor: Color(123)
+      ),
+      body: Center(
+        child: Card(
+          child: InkWell(
+            splashColor: Colors.blue.withAlpha(30),
+            onTap: () {
+              print('Card tapped.');
+            },
+            child: Container(
+              width: 600,
+              height: 500,
+              child: Text('CoAna bietet Nutzerinnen und Nutzern einen Fragebogen zur Selbsteinschätzung. Hier werden Symptome, regelmäßige Aufenthaltsorte und Kontaktpersonen abgefragt. Im Anschluss generiert sich ein zunächst anonymes sog. „Infizierungsprofil“, welches Nutzerinnen und Nutzern abstufend angibt, wie hoch die Wahrscheinlichkeit einer Infizierung mit SarsCoV2 ist. Dieses „Infizierungsprofil“ speist sich aus der angegebenen Symptomatik sowie der häuslichen Wohnsituation, insbesondere aber aus dem angegebenen Bewegungsprofil. Ein Beispiel: Ein Kassierer im Supermarkt, welcher die Symptome Halsschmerzen und Husten angibt, hat ein höhere Infizierungswahrscheinlichkeit, wenn sein Arbeitsplatz oder z.B. der Spielplatz, der mit der Tochter besucht wurde, in einem Bezirk liegt, in welchem die Infizierungsrate höher ist als im Nebenbezirk. Im Ergebnis erhalten Nutzerinnen und Nutzer dann eine Handlungsanweisung (Testung durchführen lassen, Selbstquarantäne, Homeoffice, Social Distancing). Dies bietet jedem Einzelnen Orientierung zum weiteren, persönlichen Vorgehen. Insbesondere werden so Personen von Abklärungsstellen ferngehalten, welche dort bei limitierten Testkapazitäten aus verschiedenen Gründen (fehlende Symptomatik, Alter, kein Aufenthalt in Risikogebieten) ohnehin nicht getestet würden. Empfiehlt CoAna jedoch eine Testung durchzuführen, erhalten die Betroffenen direkte Kontaktempfehlungen (z.B. zum zuständige Gesundheitsamt). Falls sie es wünschen, können die Betroffenen aber auch ihre Telefonnummer angeben und werden dann je nach Dringlichkeit von der zuständigen Institution kontaktiert. Im Ergebnis werden so Personen aus Nicht-Risikogruppen bereits zu Hause abgefangen, Kommunikationswege kanalisiert und Insitutionen entlastet.'),
             ),
           ),
-        ),
-        backgroundColor: Colors.white,
-        brightness: Brightness.light,
-        elevation: 1,
-      ),
-      body: SafeArea(
-        child: OrientationBuilder(
-          builder: (BuildContext context, Orientation orientation) {
-            return Container(
-              margin: const EdgeInsets.all(8),
-              width: screenWidth(context: context),
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: (_screenSize >= 600) ? 4 : 1),
-                itemCount: photoList.length,
-                itemBuilder: (_, index) {
-                  return PhotoItem(
-                    photo: photoList[index],
-                    onClick: (photo) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          settings: RouteSettings(name: '/photo-${photo.id}'),
-                          builder: (context) => PhotoDetails(photo: photo),
-                        ),
-                      );
-                    },
-                  );
-                },
-                controller: _scrollController,
-              ),
-            );
-          },
         ),
       ),
     );
