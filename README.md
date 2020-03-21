@@ -13,3 +13,11 @@ Lösung: 	Digitale Erstanamnese per App/Website von zu Hause
 	2. Entlastung der Hotlines der jeweiligen Institution (Gesundheitsämter, Hausärzt*innen etc.)
 	3. Virus-Tracking, durch die Angabe von Aufenthaltsorten
 </p>
+
+
+
+Flutter:
+
+	flutter build web
+	
+	flutter run -d chrome
