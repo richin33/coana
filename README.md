@@ -21,3 +21,8 @@ Flutter:
 	flutter build web
 	
 	flutter run -d chrome
+
+
+https://flutter.dev/docs/get-started/web
+
+https://medium.com/flutter/must-try-use-firebase-to-host-your-flutter-app-on-the-web-852ee533a469
