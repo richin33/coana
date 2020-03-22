@@ -21,36 +21,17 @@ class _HomeState extends State<Home> {
   int _currentPage = 1;
   double _screenSize = 0;
 
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
+  //coana colors
+  Color primaryColor = const Color.fromARGB(0xFF, 0xEE, 0xF2, 0xF8);
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     setState(() => _screenSize = screenWidth(context: context));
     return Scaffold(
       appBar: AppBar(
-        leading: Image(image: AssetImage('assets/coana5bild.png')),
-          backgroundColor: Color(123)
+        leading: Image(image: AssetImage('assets/logos/152.png')),
+          backgroundColor: primaryColor
       ),
       body: Column(
         children: [

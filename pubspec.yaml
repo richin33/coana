@@ -22,6 +22,7 @@ flutter:
   assets:
     - icons/left_arrow.png
     - assets/
+    - assets/logos/
     - fonts/
   fonts:
     - family: Montserrat

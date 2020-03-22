@@ -10,7 +10,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'coana - Corona Anamnese App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
           fontFamily: 'Montserrat'
       ),
       home: Home(),
@@ -43,7 +42,7 @@ Widget introTextSection = Container(
             children: [Padding(
               padding: EdgeInsets.all(16.0),
               child: Image(
-                image: AssetImage('assets/coana5bild.png'),
+                image: AssetImage('assets/logos/256.png'),
                 height: 130,
               ),
             ),
