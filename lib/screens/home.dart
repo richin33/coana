@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_demo/models/photo.dart';
-import 'package:flutter_web_demo/repositories/photos_repository.dart';
-import 'package:flutter_web_demo/screens/photo_details.dart';
-import 'package:flutter_web_demo/utils/free_functions.dart';
-import 'package:flutter_web_demo/widgets/photo_item.dart';
-
-import '../main.dart';
+import 'package:flutter_web_demo/colors.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -15,142 +9,112 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final _photoRepository = PhotoRepository();
-  final _scrollController = ScrollController();
-  List<Photo> photoList = [];
-  int _currentPage = 1;
-  double _screenSize = 0;
-
-  //coana colors
-  Color primaryColor = const Color.fromARGB(0xFF, 0xEE, 0xF2, 0xF8);
-
   @override
   Widget build(BuildContext context) {
-    setState(() => _screenSize = screenWidth(context: context));
-    return Scaffold(
-      backgroundColor: primaryColor,
-      appBar: AppBar(
-        leading: Image(image: AssetImage('assets/logos/152.png')),
-          backgroundColor: primaryColor
-      ),
-      body: Column(
-        children: [
-          introTextSection,
-          coanaSection,
-          hackathonLogoSection,
-          appImagesSection
-        ],
+    return Material(
+      child: Container(
+        padding: EdgeInsets.all(14),
+        decoration: BoxDecoration(color: bgColor),
+        child: Column(
+          children: [
+            buildLogo(),
+            Flexible(child: buildIntroBox(), fit: FlexFit.loose),
+            Flexible(flex: 1, child: Row(
+              children: <Widget>[
+                Flexible(flex: 1, child: buildAnalysisBox()),
+                SizedBox(width: 14),
+                Flexible(flex: 1, child: buildAppointmentBox()),
+              ],
+            )),
+          ],
+        ),
       ),
     );
   }
 
-
-  Widget hackathonLogoSection = Container(
-    padding: EdgeInsets.all(16.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Image(
-          image: AssetImage('assets/Logo_Projekt_01.png'),
-          height: 130,
-        ),
-      ],
-    ),
-  );
-
-
-
-
-  Widget introTextSection = Container(
-    padding: EdgeInsets.all(16.0),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [Padding(
-              padding: EdgeInsets.all(11.0),
-              child: Image(
-                image: AssetImage('assets/logos/256.png'),
-                height: 130,
-              ),
-            ),
-            ],
-          ),
-        )
-      ],
-    ),
-  );
-
-
-  Widget coanaSection = Container(
-
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        RaisedButton(
-          color: Color.fromARGB(0xFF, 0xEE, 0xF2, 0xF8),
-      //onPressed: _openMyPage,
-          child: const Text(
-              "Hier geht's zur App",
-              style: TextStyle(fontSize: 20)
-          ),
-        ),
-      ],
-    ),
-  );
-
-
-  Widget appImagesSection = Container(
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Image(
-          image: AssetImage('assets/google-play-badge.png'),
-          height: 30,
-        ),
-        Image(
-          image: AssetImage('assets/ios-app-store-badge.png'),
-          height: 30,
-        ),
-      ],
-    ),
-  );
-
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
+  Widget buildLogo() {
+    return Padding(
+      padding: EdgeInsets.all(30),
+      child: Image.asset(
+        'assets/coana6bild.png',
+        alignment: Alignment.center,
+        width: 80,
+      ),
+    );
   }
 
-  @override
-  void initState() {
-    _getPhotos();
-    _scrollController.addListener(() {
-      final maxScroll = _scrollController.position.maxScrollExtent;
-      final currentScroll = _scrollController.position.pixels;
-      final delta = 200;
-      if (maxScroll - currentScroll <= delta) {
-        _fetchNextPage();
-      }
-    });
-    super.initState();
+  Widget buildIntroBox() {
+    return buildBox(
+      height: 108,
+      image: DecorationImage(
+        image: AssetImage('assets/home-header-bg.png'),
+        alignment: Alignment.centerRight
+      ),
+      child: Padding(
+        padding: EdgeInsets.only(top: 17, bottom: 17, right: 90),
+        child: Text(
+          'Coana hilft Dir die richtigen Maßnahmen einzuleiten',
+          style: paragraphTextStyle,
+        ),
+      ),
+    );
   }
 
-  void _fetchNextPage() async {
-    if (_currentPage <= 20) {
-      ++_currentPage;
-      final items = await _photoRepository.fetchPhotos(page: _currentPage);
-      setState(() => photoList.addAll(items.toList()));
-    } else {
-      _currentPage = 0;
-    }
+  Widget buildAnalysisBox() {
+    return buildBox(
+      child: Column(children: <Widget>[
+        Text(
+          'Symptome analysieren'.toUpperCase(),
+          style: headlineTextStyle,
+        ),
+        Spacer(),
+        Container(child: Image.asset('assets/analysis-icon.png'), height: 75),
+        Spacer(),
+        buildButton('Start', onPressed: () {}),
+      ]),
+      height: 230,
+    );
   }
 
-  void _getPhotos() async {
-    final items = await _photoRepository.fetchPhotos(page: _currentPage);
-    setState(() => photoList = items.toList());
+  Widget buildAppointmentBox() {
+    return buildBox(
+      child: Column(children: <Widget>[
+        Text(
+          'Termin vereinbaren'.toUpperCase(),
+          style: headlineTextStyle,
+        ),
+        Spacer(),
+        Container(child: Image.asset('assets/appointment-icon.png'), height: 75),
+        Spacer(),
+        buildButton('Reservieren', onPressed: () {}),
+      ]),
+      height: 230,
+    );
+  }
+
+  Widget buildBox({ Widget child, DecorationImage image, double height }) {
+    return Container(
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: boxBgColor,
+        image: image,
+        border: Border.fromBorderSide(BorderSide(color: boxBorderColor)),
+        borderRadius: BorderRadius.circular(4),
+      ),
+      height: height,
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.only(bottom: 14),
+      child: child,
+    );
+  }
+
+  Widget buildButton(String text, { void Function() onPressed }) {
+    return FlatButton(
+      color: buttonColor,
+      textColor: buttonTextColor,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+      child: Text(text),
+      onPressed: onPressed,
+    );
   }
 }
