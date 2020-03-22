@@ -1,5 +1,5 @@
 <h1 align="center">
-   CoAna - COrona ANamnese App
+   coana - Corona Anamnese App
 </h1>
 
 <p align="center">
