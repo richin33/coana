@@ -92,7 +92,7 @@ class _HomeState extends State<Home> {
           color: Color.fromARGB(0xFF, 0xEE, 0xF2, 0xF8),
           onPressed: () {},
           child: const Text(
-              "Hier geht's zum Check",
+              "Hier geht's zur App",
               style: TextStyle(fontSize: 20)
           ),
         ),
