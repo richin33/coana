@@ -55,6 +55,7 @@ class _HomeState extends State<Home> {
       body: Column(
         children: [
           hackathonLogoSection,
+          introTextSection,
           coanaSection,
         ],
       ),

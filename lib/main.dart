@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_web_demo/screens/home.dart';
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'coana - Corona Anamnese App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+          fontFamily: 'Montserrat'
       ),
       home: Home(),
     );
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
 
 
 Widget hackathonLogoSection = Container(
+  padding: EdgeInsets.all(16.0),
   child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -27,6 +30,19 @@ Widget hackathonLogoSection = Container(
           height: 130,
         ),
       ],
+  ),
+);
+
+Widget introTextSection = Container(
+  padding: EdgeInsets.all(16.0),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Text('''
+    coana hilft dir die richtigen
+Maßnahmenschritte einzuleiten
+''')
+    ],
   ),
 );
 
