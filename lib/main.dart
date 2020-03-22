@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_web_demo/screens/home.dart';
 
 void main() => runApp(MyApp());
@@ -35,24 +34,51 @@ Widget hackathonLogoSection = Container(
 
 Widget introTextSection = Container(
   padding: EdgeInsets.all(16.0),
-  child: Row(
+  child: Column(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
-      Text('''
-    coana hilft dir die richtigen
-Maßnahmenschritte einzuleiten
-''')
+      Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Image(
+                image: AssetImage('assets/coana5bild.png'),
+                height: 130,
+              ),
+            ),
+            ],
+          ),
+      )
     ],
   ),
 );
 
 Widget coanaSection = Container(
-  child: Row(
+  child: Column(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
-      Image(
-        image: AssetImage('assets/coana6bild.png'),
-        height: 130,
+
+      RaisedButton(
+        onPressed: () {},
+        textColor: Colors.white,
+        padding: const EdgeInsets.all(0.0),
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: <Color>[
+                Color(0xFF0D47A1),
+                Color(0xFF1976D2),
+                Color(0xFF42A5F5),
+              ],
+            ),
+          ),
+          padding: const EdgeInsets.all(10.0),
+          child: const Text(
+              "Hier geht's zum Check",
+              style: TextStyle(fontSize: 20)
+          ),
+        ),
       ),
     ],
   ),
@@ -70,10 +96,6 @@ Widget appImagesSection = Container(
       Image(
         image: AssetImage('assets/ios-app-store-badge.png'),
         height: 30,
-      ),
-      Image(
-        image: AssetImage('assets/Logo_Projekt_01.png'),
-        height: 150,
       ),
     ],
   ),

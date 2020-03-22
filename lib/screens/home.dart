@@ -54,39 +54,11 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: [
-          hackathonLogoSection,
           introTextSection,
           coanaSection,
+          hackathonLogoSection,
+          appImagesSection
         ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            title: Text('Business'),
-          ),
-          BottomNavigationBarItem(
-            icon: Image(
-              image: AssetImage('assets/google-play-badge.png'),
-              height: 23,
-            ),
-            title: Text(''),
-          ),
-          BottomNavigationBarItem(
-            icon: Image(
-              image: AssetImage('assets/ios-app-store-badge.png'),
-              height: 23,
-            ),
-            title: Text(''),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
       ),
     );
   }
