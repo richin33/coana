@@ -21,6 +21,29 @@ class _HomeState extends State<Home> {
   int _currentPage = 1;
   double _screenSize = 0;
 
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     setState(() => _screenSize = screenWidth(context: context));
@@ -31,8 +54,37 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: [
-          appImagesSection,
+          hackathonLogoSection,
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            title: Text('Business'),
+          ),
+          BottomNavigationBarItem(
+            icon: Image(
+              image: AssetImage('assets/google-play-badge.png'),
+              height: 23,
+            ),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Image(
+              image: AssetImage('assets/ios-app-store-badge.png'),
+              height: 23,
+            ),
+            title: Text(''),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }

@@ -17,12 +17,36 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+Widget hackathonLogoSection = Container(
+  child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Image(
+          image: AssetImage('assets/Logo_Projekt_01.png'),
+          height: 130,
+        ),
+      ],
+  ),
+);
+
+
 Widget appImagesSection = Container(
   child: Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
-      Image(image: AssetImage('assets/google-play-badge.png')),
-      Image(image: AssetImage('assets/ios-app-store-badge.png')),
+      Image(
+        image: AssetImage('assets/google-play-badge.png'),
+        height: 30,
+      ),
+      Image(
+        image: AssetImage('assets/ios-app-store-badge.png'),
+        height: 30,
+      ),
+      Image(
+        image: AssetImage('assets/Logo_Projekt_01.png'),
+        height: 150,
+      ),
     ],
   ),
 );
