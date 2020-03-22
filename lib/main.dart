@@ -53,7 +53,6 @@ class FirstRoute extends StatelessWidget {
   );
 
 
-
   Widget appImagesSection = Container(
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -74,15 +73,11 @@ class FirstRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
-      appBar: AppBar(
-          leading: Image(image: AssetImage('assets/logos/152.png')),
-          backgroundColor: primaryColor
-      ),
+      appBar: AppBar(),
       body: Column(
         children: [
           introTextSection,
         Container(
-
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -115,16 +110,14 @@ class SecondRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Route"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            // Navigate back to first route when tapped.
-          },
-          child: Text('Go back!'),
-        ),
-      ),
-    );
+        title: Align(
+          alignment: Alignment.topCenter,
+          child: Image(
+            image: AssetImage('assets/logos/55.png'),
+            height: 130,
+          ),
+        )
+        )
+      );
   }
 }
