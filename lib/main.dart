@@ -30,6 +30,18 @@ Widget hackathonLogoSection = Container(
   ),
 );
 
+Widget coanaSection = Container(
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Image(
+        image: AssetImage('assets/coana6bild.png'),
+        height: 130,
+      ),
+    ],
+  ),
+);
+
 
 Widget appImagesSection = Container(
   child: Row(

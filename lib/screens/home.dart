@@ -49,12 +49,13 @@ class _HomeState extends State<Home> {
     setState(() => _screenSize = screenWidth(context: context));
     return Scaffold(
       appBar: AppBar(
-        leading: Image(image: AssetImage('assets/coana1.png')),
+        leading: Image(image: AssetImage('assets/coana5bild.png')),
           backgroundColor: Color(123)
       ),
       body: Column(
         children: [
           hackathonLogoSection,
+          coanaSection,
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
