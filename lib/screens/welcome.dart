@@ -24,6 +24,7 @@ class _HomeState extends State<Home> {
   //coana colors
   Color primaryColor = const Color.fromARGB(0xFF, 0xEE, 0xF2, 0xF8);
 
+
   @override
   Widget build(BuildContext context) {
     setState(() => _screenSize = screenWidth(context: context));
@@ -83,15 +84,13 @@ class _HomeState extends State<Home> {
     ),
   );
 
-
   Widget coanaSection = Container(
-
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         RaisedButton(
           color: Color.fromARGB(0xFF, 0xEE, 0xF2, 0xF8),
-      //onPressed: _openMyPage,
+          onPressed: () {},
           child: const Text(
               "Hier geht's zur App",
               style: TextStyle(fontSize: 20)
